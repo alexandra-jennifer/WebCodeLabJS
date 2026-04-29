@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JavaScript</title>
+</head>
+<body>
+
+<script type="text/javascript">
+function print(message, times){
+    for (var i = 1; i <= times; i++){
+        console.log(i + '. ' + message);
+    }
+}
+var inputMessage = prompt("Masukkan kata yang ingin ditampilkan:");
+var inputTimes = prompt("Mau ditampilkan berapa kali?");
+print(inputMessage, Number(inputTimes));
+</script>
+</body>
+</html>

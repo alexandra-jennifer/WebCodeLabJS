@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JavaScript</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    var userScore = 0;
+    var computerScore = 0;
+
+    for (var i = 1; i <= 3; i++) {
+        // 1. Ambil input user
+        var userChoice = prompt("Round " + i + ": Pilih batu, gunting, atau kertas").toLowerCase();
+
+        // 2. Komputer memilih secara acak (0=batu, 1=gunting, 2=kertas)
+        var choices = ["batu", "gunting", "kertas"];
+        var randomNum = Math.floor(Math.random() * 3);
+        var computerChoice = choices[randomNum];
+
+        // 3. Logika penentuan pemenang ronde
+        var result = "";
+        if (userChoice === computerChoice) {
+            result = "Draw";
+        } else if (
+            (userChoice === "batu" && computerChoice === "gunting") ||
+            (userChoice === "gunting" && computerChoice === "kertas") ||
+            (userChoice === "kertas" && computerChoice === "batu")
+        ) {
+            result = "User Wins";
+            userScore++;
+        } else {
+            result = "Computer Wins";
+            computerScore++;
+        }
+
+        // 4. Tampilkan hasil setiap ronde di console
+        console.log("User " + userChoice + " Vs Computer " + computerChoice + " = " + result);
+    }
+
+    // 5. Penentuan pemenang akhir setelah 3 ronde
+    if (userScore > computerScore) {
+        console.log("User wins the game !");
+    } else if (computerScore > userScore) {
+        console.log("Computer wins the game !");
+    } else {
+        console.log("The game is a tie !");
+    }
+</script>
+</body>
+</html>

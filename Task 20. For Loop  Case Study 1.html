@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JavaScript</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    for (var i = 1; i <= 3; i++) {
+        var pokemon = prompt('Masukkan nama Pokemon ke-' + i + ':').toLowerCase();
+
+        // Electric
+        if (pokemon === "pikachu" || pokemon === "raichu" || pokemon === "elekid") {
+            console.log(pokemon + " is an electric type pokemon");
+        } 
+        // Water
+        else if (pokemon === "squirtle" || pokemon === "lapras" || pokemon === "greninja") {
+            console.log(pokemon + " is a water type pokemon");
+        } 
+
+        else {
+            console.log(pokemon + " type is unknown");
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JavaScript</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    var numbers = [1,2,3,4,5,6,7,8,9,10];
+
+    var array_odd = numbers.map(function(num) {
+        if (num % 2 !== 0) {
+            return num;
+        } else 
+            return -1;
+        });
+
+    array_odd.forEach(function(item) {
+        console.log(item);
+    });
+</script>
+</body>
+</html>

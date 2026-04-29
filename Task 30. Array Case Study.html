@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JavaScript</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    var fruits = [];
+    var inputUser = "";
+
+    while (true) {
+        inputUser = prompt("Masukkan nama buah (ketik 'stop' untuk selesai):");
+
+        if (inputUser === null || inputUser.toLowerCase() === "stop") {
+            break;
+        }
+
+        fruits.push(inputUser);
+    }
+    
+    for (var i = 0; i < fruits.length; i++) {
+        console.log("Buah ke-" + (i + 1) + ": " + fruits[i]);
+    }
+</script>
+</body>
+</html>

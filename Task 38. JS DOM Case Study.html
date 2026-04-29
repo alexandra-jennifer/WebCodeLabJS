@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Task 38 - Create Account</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .form-card { max-width: 500px; margin: 40px auto; padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body>
+
+<div class="w3-card w3-white form-card">
+    <h2 class="w3-center">Create Account</h2>
+    
+    <div class="w3-row-padding">
+        <div class="w3-half"><p><input class="w3-input w3-border" id="fname" type="text" placeholder="First Name"></p></div>
+        <div class="w3-half"><p><input class="w3-input w3-border" id="lname" type="text" placeholder="Last Name"></p></div>
+    </div>
+    
+    <p><input class="w3-input w3-border" id="country" type="text" placeholder="Country"></p>
+    
+    <div class="w3-row-padding">
+        <div class="w3-half"><p><input class="w3-input w3-border" id="email" type="email" placeholder="Email Address"></p></div>
+        <div class="w3-half"><p><input class="w3-input w3-border" id="phone" type="text" placeholder="Phone Number"></p></div>
+    </div>
+    
+    <div class="w3-row-padding">
+        <div class="w3-half"><p><input class="w3-input w3-border" id="password" type="password" placeholder="Password"></p></div>
+        <div class="w3-half"><p><input class="w3-input w3-border" id="confPassword" type="password" placeholder="Confirm Password"></p></div>
+    </div>
+    
+    <p><input class="w3-check" id="terms" type="checkbox"> <label>Terms and Condition</label></p>
+    
+    <button class="w3-button w3-blue w3-block" onclick="createAccount()">Create</button>
+</div>
+
+<script>
+function createAccount() {
+
+    var data = {
+        name: document.getElementById("fname").value + " " + document.getElementById("lname").value,
+        country: document.getElementById("country").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        pass: document.getElementById("password").value,
+        confPass: document.getElementById("confPassword").value,
+        terms: document.getElementById("terms").checked
+    };
+
+    console.log("Data User:", data);
+
+    if (data.pass === data.confPass) {
+        console.log("Password sama dengan Confirm Password");
+    } else {
+        console.log("Password TIDAK sama dengan Confirm Password");
+        alert("Peringatan: Password tidak cocok!");
+    }
+}
+</script>
+
+</body>
+</html>

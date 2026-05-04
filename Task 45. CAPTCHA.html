@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JavaScript</title>
+</head>
+<body>
+    <h1>Validasi CAPTCHA</h1>
+    
+    <div style="margin-bottom: 10px;">
+        <img id="img1" width="50">
+        <span id="operator" style="font-size: 25px; font-weight: bold;"></span>
+        <img id="img2" width="50">
+        <span>= ?</span>
+    </div>
+
+    <input type="number" id="inputUser" placeholder="Jawaban Anda">
+    <button onclick="cekCaptcha()">Cek</button>
+    <button onclick="buatCaptcha()">Refresh</button>
+
+    <p id="notifikasi"></p>
+    
+<script type="text/javascript">
+
+    // 1. Array berisi alamat gambar angka 0-9
+    // placeholder yang menampilkan angka
+    const listGambar = [
+        "https://placehold.co/50x50?text=0",
+        "https://placehold.co/50x50?text=1",
+        "https://placehold.co/50x50?text=2",
+        "https://placehold.co/50x50?text=3",
+        "https://placehold.co/50x50?text=4",
+        "https://placehold.co/50x50?text=5",
+        "https://placehold.co/50x50?text=6",
+        "https://placehold.co/50x50?text=7",
+        "https://placehold.co/50x50?text=8",
+        "https://placehold.co/50x50?text=9"
+        ];
+
+    const listOperator = ["+", "-"];
+    let hasilBenar;
+
+    // 2. Fungsi menampilkan 2 gambar dan 1 operator acak
+    function buatCaptcha() {
+        let acak1 = Math.floor(Math.random() * listGambar.length);
+        let acak2 = Math.floor(Math.random() * listGambar.length);
+        let acakOp = Math.floor(Math.random() * listOperator.length);
+
+        let opTerpilih = listOperator[acakOp];
+
+        // Tampilkan ke elemen HTML
+        document.getElementById("img1").src = listGambar[acak1];
+        document.getElementById("img2").src = listGambar[acak2];
+        document.getElementById("operator").innerText = opTerpilih;
+
+        // Hitung hasil berdasarkan angka (index array)
+        if (opTerpilih === "+") {
+            hasilBenar = acak1 + acak2;
+        } else {
+            hasilBenar = acak1 - acak2;
+        }
+    }
+
+    // 3. Prosedur pengecekan
+    function cekCaptcha() {
+        let jawaban = document.getElementById("inputUser").value;
+        let pesan = document.getElementById("notifikasi");
+
+        if (parseInt(jawaban) === hasilBenar) {
+            pesan.innerText = "CAPTCHA is VALID!";
+            pesan.style.color = "green";
+        } else {
+            pesan.innerText = "CAPTCHA is INVALID!";
+            pesan.style.color = "red";
+            buatCaptcha(); // Ganti soal jika salah
+        }
+    }
+
+    // Jalankan fungsi saat pertama kali load
+    buatCaptcha();
+
+</script>
+</body>
+</html>

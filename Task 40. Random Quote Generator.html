@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JavaScript</title>
+</head>
+<body>
+    <h1>Programmer Quotes</h1>
+
+    <blockquote>"<span id="quote-text">Click the button to see quote.</span>"</blockquote>
+    <button onclick="generateQuote()">New Quote</button>
+
+<script type="text/javascript">
+    const quotes = [
+        "A primary cause of complexity is that software vendors usually give us what we ask for rather than what we need.",
+        "The best error message is the one that never shows up.",
+        "Code is like humor. When you have to explain it, it is bad.",
+        "Software and cathedrals are much the same—first we build them, then we pray.",
+        "A good programmer is someone who always looks both ways before crossing a one-way street.",
+        "Measuring programming progress by lines of code is like measuring aircraft building progress by weight.",
+        "First, solve the problem. Then, write the code.",
+        "The computer was born to solve problems that did not exist before.",
+        "If at first you do not succeed, call it version 1.0.",
+        "Fix the cause, not just the symptom."
+    ];
+    
+    function generateQuote() {
+        const randomQuotes = Math.floor(Math.random() * quotes.length);
+        const selectedQuote = quotes[randomQuotes];
+        document.getElementById("quote-text").textContent = selectedQuote;
+        }
+    
+</script>
+</body>
+</html>
